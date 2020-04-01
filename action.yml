@@ -1,0 +1,13 @@
+name: 'Issue Defaults'
+description: 'Simple action that sets default assignee/tags to new issues'
+inputs:
+  tag:
+    description: 'Assign this tag if no other tags specified'
+    required: false
+  assignee:
+    description: 'Assign this person if not explicitly assgned'
+    required: false
+runs:
+  using: 'node12'
+  main: 'index.js'
+
