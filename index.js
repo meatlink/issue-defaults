@@ -9,7 +9,7 @@ main();
 
 async function main() {
     try {
-        console.log("starged");
+        console.log("started");
         const githubWrapper = new GithubWrapper();
         const action = new IssueDefaultsAction({githubWrapper});
         await Promise.all(action.run());

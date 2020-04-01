@@ -8,20 +8,24 @@ class GithubWrapper {
         this.octokit = new github.GitHub(this.getActionToken());
     }
 
+    getPayload() {
+        return github.context.payload;
+    }
+
     assignIssueTo(assignee) {
         return this.octokit.issues.addAssignees({
-            owner: github.context.repository.owner,
-            repo: github.context.repository.name,
-            issue_number: github.context.issue.number,
+            owner: this.getPayload().repository.owner.login,
+            repo: this.getPayload().repository.name,
+            issue_number: this.getPayload().issue.number,
             assignees: [assignee]
         });
     }
 
     addLabelToIssue(label) {
         return this.octokit.issues.addLabels({
-            owner: github.context.repository.owner,
-            repo: github.context.repository.name,
-            issue_number: github.context.issue.number,
+            owner: this.getPayload().repository.owner.login,
+            repo: this.getPayload().repository.name,
+            issue_number: this.getPayload().issue.number,
             labels: [label]
         });
     }
@@ -44,10 +48,6 @@ class GithubWrapper {
 
     getActionToken() {
         return core.getInput("token");
-    }
-
-    setFailed() {
-
     }
 
 }
