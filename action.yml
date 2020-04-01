@@ -1,0 +1,16 @@
+name: 'Issue Defaults'
+description: 'Simple action that sets default assignee/labels to new issues'
+inputs:
+  label:
+    description: 'Assign this label if no other labels specified'
+    required: false
+  assignee:
+    description: 'Assign to this person if not explicitly assigned'
+    required: false
+  token:
+    description: 'Github token'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
+
