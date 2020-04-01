@@ -4,6 +4,8 @@ const GithubWrapper = require("./src/githubWrapper.js");
 const IssueDefaultsAction = require("./src/issueDefaultsAction.js");
 
 
+main();
+
 
 async function main() {
     try {
